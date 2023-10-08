@@ -1,0 +1,83 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block title %}{{category_title.series.title}}{% endblock %}
+
+
+
+{% block content %}
+
+{% include 'layouts/header.html' %}
+
+<main class="main-articles">
+
+    <section class="section-1-articles">
+
+        <ul class="ul-content-articles">
+
+            {% for object in objects %}
+            <li>
+                <a href="/{{object.series.title}}/{{object.series.slug}}/{{object.title}}/{{object.article_slug}}">
+                    <div style{% block color %}=" background-color: {{object.bg_color}};" {% endblock %}>
+                        {% if object.image.url == "/media/default/placeholder.webp" %}
+                        <img src="{{object.image.url}}" alt="{{object.title}}" class="image-article">
+                        {% else %}
+                        <img src="{{object.image.url}}" alt="{{object.title}}" class="image-article"
+                            style="object-fit: contain; padding: 5px;">
+                        {% endif %}
+                    </div>
+                    <div class="content-title-des-article">
+                        <p title="{{object.title}}"><strong>{{object.title}}</strong></p>
+                        <p>{{object.description}}</p>
+                    </div>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <div class="content-paginator">
+            <nav aria-label="Page navigation example" class="mt-5">
+                {% if objects.has_other_pages %}
+                <ul class="pagination">
+                    {% if objects.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{objects.previous_page_number}}">
+                            Previous
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link disabled" href="#">Previous</a>
+                    </li>
+                    {% endif %}
+
+                    {% for i in objects.paginator.page_range %}
+                    {% if objects.number == i %}
+                    <li class="page-item active">
+                        <a class="page-link" href="?page={{i}}">{{i}}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{i}}">{{i}}</a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+
+                    {% if objects.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{objects.next_page_number}}">Next</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link disabled" href="#">Next</a>
+                    </li>
+                    {% endif %}
+                </ul>
+                {% endif %}
+            </nav>
+        </div>
+    </section>
+</main>
+
+
+{% include 'layouts/footer.html' %}
+{% endblock %}

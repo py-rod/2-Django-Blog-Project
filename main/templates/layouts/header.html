@@ -1,0 +1,82 @@
+{%load static %}
+
+<header class="header">
+    <nav class="header-nav">
+        <a href="{% url 'home' %}" class="header-home">
+            <img src="{% static 'icons/logo2.webp' %}" alt="asd">
+        </a>
+
+        <form action="{% url 'search' %}" class="form-search w-50" method="GET">
+            <input type="text" placeholder="Search" name="q">
+            <button type="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    style="fill: #5C00FD;">
+                    <path
+                        d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z">
+                    </path>
+                </svg>
+            </button>
+        </form>
+
+
+        {% if user.is_authenticated %}
+        {% if user.is_superuser %}
+        <div class="dropdown">
+            <button class="button-menu-profile" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="{{user.image.url}}" alt="Profile pick" class="header-profile-pick">
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-item" href="#">
+                        <img src="{% static 'icons/settings.svg' %}" alt="settings">
+                        <p>Profile</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="{% url 'logout' %}">
+                        <img src="{% static 'icons/logout.svg' %}" alt="logout">
+                        <p>Logout</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        {% else %}
+        <div class="dropdown">
+            <button class="button-menu-profile" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="{{user.image.url}}" alt="Profile pick" class="header-profile-pick">
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-item" href="#">
+                        <img src="{% static 'icons/settings.svg' %}" alt="settings">
+                        <p>Profile</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="{% url 'logout' %}">
+                        <img src="{% static 'icons/logout.svg' %}" alt="logout">
+                        <p>Logout</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        {% endif %}
+        {% else %}
+        <div>
+            <a href="{% url 'signup' %}" title="Signup / Signin">
+                <svg width="45px" height="45px" viewBox="0 0 24.00 24.00" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <circle cx="12" cy="9" r="3" stroke="#5C00FD" stroke-width="1.5"></circle>
+                        <circle cx="12" cy="12" r="10" stroke="#5C00FD" stroke-width="1.5"></circle>
+                        <path d="M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20"
+                            stroke="#5C00FD" stroke-width="1.5" stroke-linecap="round"></path>
+                    </g>
+                </svg>
+            </a>
+        </div>
+        {% endif %}
+    </nav>
+</header>

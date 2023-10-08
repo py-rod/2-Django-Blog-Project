@@ -1,0 +1,22 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block title %}Signup{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<main>
+    <section class="section-signup">
+        <img src="{% static 'images/code.gif' %}" alt="ilustration">
+
+        <div>
+            <form action="{% url 'signup' %}" method="POST" class="form-signup">
+                {% csrf_token %}
+                {{form|crispy}}
+                <button type="submit" class="button-create-user">Create account</button>
+            </form>
+            <p>Do you have any account? <a href="{% url 'signin' %}">Signin</a> </p>
+        </div>
+    </section>
+</main>
+{% endblock %}

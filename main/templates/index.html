@@ -1,0 +1,97 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'layouts/header.html' %}
+
+<main>
+    {% include 'layouts/messages.html' %}
+    <section class="section-1-index">
+        <div>
+            <h3>Welcome to PyBlog!</h3>
+            <p>Here at "PyBlog", we invite you to explore the exciting world of programming and web
+                development. You
+                will find content about <strong style="color: #5C00FD;">Python</strong>, <strong
+                    style="color: #5C00FD;">Django</strong>,
+                <strong style="color: #5C00FD;">React</strong> and
+                <strong style="color: #5C00FD;">more</strong>. I am a full
+                stack developer and
+                I want to share
+                knowledge and experiences with you.
+            </p>
+        </div>
+        <img src="{% static 'images/06-code.svg' %}" alt="">
+    </section>
+
+
+    <section class="section-2-categories">
+        <img src="{% static 'images/top.svg' %}" alt="top">
+        <div>
+            <div>
+                <h3>Categories</h3>
+                <a href="">All categories</a>
+            </div>
+
+            <ul class="content-categories-index">
+                {% for object in objects|slice:"14" %}
+                <li>
+                    <a href="/{{object.title}}/{{object.slug}}">
+                        <div style{% block color %}=" background-color: {{object.bg_color}};" {% endblock %}>
+                            {% if object.image.url == "/media/default/placeholder.webp" %}
+                            <img src="{{object.image.url}}" alt="{{object.title}}" class="image-category">
+                            {% else %}
+                            <img src="{{object.image.url}}" alt="{{object.title}}" class="image-category"
+                                style="object-fit: contain; padding: 5px;">
+                            {% endif %}
+                        </div>
+                        <div>
+                            <p><strong style="color:#455772 ;">{{object.title}}</strong></p>
+                        </div>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <img src="{% static 'images/bottom.svg' %}" alt="botom">
+    </section>
+
+    <section class="section-3-index">
+        <h3>What you can expect from PyBlog</h3>
+        <div class="content-other-info-index">
+            <ul>
+                <li>
+                    <img src="{% static 'icons/check.svg' %}" alt="check">
+                    <p>
+                        Engaging video tutorials on various programming topics
+                    </p>
+                </li>
+                <li>
+                    <img src="{% static 'icons/check.svg' %}" alt="check">
+                    <p>
+                        In-depth articles and guides to help you grasp complex concepts
+                    </p>
+                </li>
+                <li>
+                    <img src="{% static 'icons/check.svg' %}" alt="check">
+                    <p>
+                        Practical tips, best practices, and real-world development experiences
+                    </p>
+                </li>
+                <li>
+                    <img src="{% static 'icons/check.svg' %}" alt="check">
+                    <p>
+                        A vibrant community where you can connect with fellow developers, ask questions, and share your
+                        insights
+                    </p>
+                </li>
+            </ul>
+
+            <img src="{% static 'images/video.svg' %}" alt="video-svg">
+        </div>
+    </section>
+</main>
+
+
+{% include 'layouts/footer.html' %}
+{% endblock %}

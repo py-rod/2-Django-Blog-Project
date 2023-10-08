@@ -1,0 +1,115 @@
+.main-articles {
+    padding: 50px;
+}
+
+.section-1-articles {
+    background-color: white;
+    padding: 50px 30px;
+    min-height: 100%;
+    border-radius: 5px;
+}
+
+.ul-content-articles {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(14.3rem, 1fr));
+    list-style-type: none;
+    padding: 0;
+}
+
+.ul-content-articles>li {
+    background-color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 4px;
+    box-shadow: 0 0 5px rgb(150, 150, 150);
+}
+
+
+.ul-content-articles>li>a {
+    text-decoration: none;
+
+}
+
+.image-article {
+    border-radius: 8px;
+    display: block;
+    width: 100%;
+    height: 205px;
+}
+
+.content-title-des-article {
+    padding: 15px 10px 0;
+}
+
+
+.content-title-des-article>p:nth-child(1) {
+    color: rgb(61, 76, 100);
+    font-family: 'Libre Franklin', sans-serif;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.content-title-des-article>p:nth-child(2) {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #455772;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+
+/* PAGINATOR */
+
+
+.content-paginator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-item.active .page-link {
+    background-color: #5C00FD;
+    color: white;
+    border: 1px solid #5C00FD;
+}
+
+.page-item .page-link {
+    box-shadow: none;
+}
+
+.page-item.active:active {
+    box-shadow: none;
+    border: none;
+    outline: none;
+}
+
+.page-item .page-link {
+    color: rgb(75, 98, 124);
+}
+
+
+
+
+/* STYLE SEARCH PAGE */
+.main-search {
+    padding: 50px;
+}
+
+.section-1-search {
+    background-color: white;
+    padding: 50px 30px;
+    min-height: 100%;
+    border-radius: 5px;
+}
+
+.text-not-found {
+    text-align: center;
+    font-size: 3rem;
+    color: #41526b;
+    font-weight: 600;
+}

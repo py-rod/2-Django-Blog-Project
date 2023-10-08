@@ -1,0 +1,23 @@
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: #2d3b50;
+    padding: 60px 50px 20px;
+    height: 300px;
+
+}
+
+footer>div>a {
+    text-decoration: none;
+    color: #9256fa;
+    font-weight: 600;
+    font-size: 2.4rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+footer>p {
+    color: white;
+    text-align: center;
+}

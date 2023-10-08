@@ -1,0 +1,43 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block title %}{{object.title}}{% endblock %}
+
+
+
+
+
+
+{% block content %}
+{% include 'layouts/header.html' %}
+
+<main class="main-post-article">
+    <section class="section-content-post-article">
+        <div class="content-info-user-post">
+            <div>
+                <img src="{{object.author.image.url}}" alt="">
+                <div>
+                    <h4>{{object.author.get_full_name}}</h4>
+                    <small>{{object.created}}</small>
+                </div>
+            </div>
+            <div class="btn-group">
+                <button type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="{% static 'icons/dots.svg' %}" alt="dots">
+                </button>
+                <ul class="dropdown-menu">
+                    ...
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="div-content-post-article">
+            {{object.content|safe}}
+        </div>
+
+    </section>
+</main>
+
+{% include 'layouts/footer.html' %}
+
+{% endblock %}
