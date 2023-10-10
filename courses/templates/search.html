@@ -12,7 +12,8 @@
 
             {% for object in objects %}
             <li>
-                <a href="/{{object.series.title}}/{{object.series.slug}}/{{object.title}}/{{object.article_slug}}">
+                <a
+                    href="{% url 'content_article' object.series.title object.series.slug object.title object.article_slug %}">
                     <div style{% block color %}=" background-color: {{object.bg_color}};" {% endblock %}>
                         {% if object.image.url == "/media/default/placeholder.webp" %}
                         <img src="{{object.image.url}}" alt="{{object.title}}" class="image-article">

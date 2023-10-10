@@ -1,0 +1,66 @@
+{% extends 'layouts/base.html' %}
+{% block title %}Profile{% endblock %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+{% include 'layouts/header.html' %}
+
+{% include 'layouts/messages.html' %}
+
+<main class="main-profile">
+    <section class="section-1-profile">
+        <form action="{% url 'profile' user.username user.id %}" method="POST" enctype="multipart/form-data"
+            class="content-profile-data">
+            {% csrf_token %}
+            <div class="content-img-user">
+                {% if user.id == form.instance.id %}
+                <div>
+                    <input id="id_image" type="file" name="image" hidden />
+                    <label for="id_image">
+                        <img class="image-profile" src="{{ form.instance.image.url }}" title="Upload new image">
+                    </label>
+                    <p class="email-view-profile">{{form.instance.get_full_name}}</p>
+                </div>
+                <p>{{form.instance.description}}</p>
+                {% else %}
+                <div>
+                    <label for="id_image">
+                        <img class="image-profile" src="{{ form.instance.image.url }}"
+                            title="{{form.instance.username}}">
+                    </label>
+                    <p class="email-view-profile">{{form.instance.get_full_name}}</p>
+                </div>
+                <p>{{form.instance.description}}</p>
+                {% endif %}
+            </div>
+
+            {% if user.id == form.instance.id %}
+            <div class="content-form-inputs-profile">
+                <div>
+                    <div>
+                        {{form.username|as_crispy_field}}
+                        {{form.email|as_crispy_field}}
+                    </div>
+                    <div>
+                        {{form.first_name|as_crispy_field}}
+                        {{form.last_name|as_crispy_field}}
+                    </div>
+                </div>
+                <div id="div_id_description" style="display: flex; flex-direction: column; gap: 10px;">
+                    <label for="id_description">
+                        Description
+                    </label>
+                    <textarea name="description" id="id_description" rows="5" class="form-control input-description"
+                        maxlength="500">{{form.instance.description}}</textarea>
+                </div>
+            </div>
+            {% endif %}
+
+            <button type="submit" class="btn btn-success mt-3">Update profile</button>
+        </form>
+    </section>
+</main>
+
+{% include 'layouts/footer.html' %}
+{% endblock %}

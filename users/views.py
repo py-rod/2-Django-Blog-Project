@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 # Forms
-from .forms import UserCreationForm, AuthenticationForm
+from .forms import UserCreationForm, AuthenticationForm, UserUpdateForm
 
 
 from django.contrib.auth import authenticate, login, logout
@@ -58,3 +58,19 @@ def close_session(request):
 def profile(request, username, id):
     if request.method == "POST":
         user = request.user
+        print(user)
+        form = UserUpdateForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            user_form = form.save()
+            messages.success(request, "Profile has been updated")
+            # El request.path, sirve para hacer un redireccionamiento a la misma vista
+            return redirect(request.path)
+        else:
+            for error in list(form.errors.values()).pop():
+                messages.error(request, error)
+    user = get_user_model().objects.filter(id=id).first()
+    if user:
+        form = UserUpdateForm(instance=user)
+        return render(request, "profile.html", {
+            "form": form
+        })

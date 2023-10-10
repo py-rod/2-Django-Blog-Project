@@ -36,7 +36,7 @@
             <ul class="content-categories-index">
                 {% for object in objects|slice:"14" %}
                 <li>
-                    <a href="/{{object.title}}/{{object.slug}}">
+                    <a href="{% url 'articles' object.title object.slug %}">
                         <div style{% block color %}=" background-color: {{object.bg_color}};" {% endblock %}>
                             {% if object.image.url == "/media/default/placeholder.webp" %}
                             <img src="{{object.image.url}}" alt="{{object.title}}" class="image-category">

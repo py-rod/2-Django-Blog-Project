@@ -1,0 +1,75 @@
+.section-1-profile {
+    padding: 50px;
+    background-image: url("../images/polygon.svg");
+    background-repeat: no-repeat;
+    background-size: auto, cover;
+}
+
+.content-profile-data {
+    background-color: white;
+    min-height: 100vh;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgb(221, 221, 221);
+}
+
+.content-img-user {
+    display: flex;
+    gap: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgb(156, 168, 189);
+}
+
+.content-img-user>div>p {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #232b38;
+}
+
+.content-img-user>p {
+    padding: 20px 0;
+    font-size: 1.1rem;
+    color: #495d7c;
+    font-weight: 500;
+}
+
+.image-profile {
+    width: 200px;
+    height: 200px;
+    display: block;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+
+/* FORM */
+.content-form-inputs-profile>div {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.content-form-inputs-profile>div>div {
+    width: 100%;
+}
+
+.content-form-inputs-profile>div>div>div>input {
+    border: 1px solid #dac5ff;
+}
+
+.content-form-inputs-profile>div>div>div>input:focus {
+    border: 1px solid #5C00FD;
+    box-shadow: 0 0 3px #5C00FD;
+}
+
+.input-description {
+    border: 1px solid #dac5ff;
+}
+
+.input-description:focus {
+    border: 1px solid #5C00FD;
+    box-shadow: 0 0 3px #5C00FD;
+}
