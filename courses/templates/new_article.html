@@ -1,0 +1,30 @@
+{% extends 'layouts/base.html' %}
+{% block title %}New Article{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+{% include 'layouts/header.html' %}
+<main class="main-new_article">
+    <section class="section-1-new-article">
+        {% if type == "create" %}
+        <form action="{% url 'new_article' %}" method="POST" enctype="multipart/form-data"
+            class="form-control form-new-article">
+            {% csrf_token %}
+            {{form|crispy}}
+            {{form.media}}
+            <button type="submit" class="create-new-article">Create Article</button>
+        </form>
+        {% else %}
+        <form
+            action="{% url 'update_article' article.series.title article.series.slug article.title article.article_slug %}"
+            method="POST" enctype="multipart/form-data" class="form-control form-new-article">
+            {% csrf_token %}
+            {{form|crispy}}
+            {{form.media}}
+            <button type="submit" class="create-new-article">Update Article</button>
+        </form>
+        {% endif %}
+    </section>
+</main>
+{% include 'layouts/footer.html' %}
+{% endblock %}

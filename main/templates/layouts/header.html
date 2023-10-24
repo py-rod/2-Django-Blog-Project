@@ -33,11 +33,24 @@
                     </a>
                 </li>
                 <li>
+                    <a class="dropdown-item" href="{% url 'new_category' %}">
+                        <img src="{% static 'icons/create_category.svg' %}" alt="new category">
+                        <p>New Category</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="{% url 'new_article' %}">
+                        <img src="{% static 'icons/create_article.svg' %}" alt="new article">
+                        <p>New Article</p>
+                    </a>
+                </li>
+                <li>
                     <a class="dropdown-item" href="{% url 'logout' %}">
                         <img src="{% static 'icons/logout.svg' %}" alt="logout">
                         <p>Logout</p>
                     </a>
                 </li>
+
             </ul>
         </div>
         {% else %}
@@ -47,7 +60,7 @@
             </button>
             <ul class="dropdown-menu">
                 <li>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="{% url 'profile' user.username user.id %}">
                         <img src="{% static 'icons/settings.svg' %}" alt="settings">
                         <p>Profile</p>
                     </a>

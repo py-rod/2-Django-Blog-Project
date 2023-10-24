@@ -49,3 +49,32 @@
 .div-content-post-article {
     margin-top: 70px;
 }
+
+.options-articles>a:nth-child(1) {
+    background-color: rgb(44, 94, 243);
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: .3s;
+}
+
+.options-articles>a:nth-child(1):hover {
+    background-color: rgb(26, 83, 255);
+
+}
+
+
+.options-articles>a:nth-child(2) {
+    background-color: rgb(231, 49, 49);
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: .3s;
+}
+
+.options-articles>a:nth-child(2):hover {
+    background-color: rgb(241, 26, 26);
+
+}

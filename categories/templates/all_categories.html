@@ -1,0 +1,93 @@
+{% extends 'layouts/base.html' %}
+{% block title %}All Categories{% endblock %}
+{% load static %}
+
+
+{% block content %}
+{% include 'layouts/header.html' %}
+<main>
+    {% include 'layouts/messages.html' %}
+
+    <section class="section-1-all-categories">
+        <ul>
+            {% for category in categories %}
+            <li>
+                <div style{% block color %}=" background-color: {{category.bg_color}};" {% endblock %}>
+                    <a href="{% url 'articles' category.title category.slug %}">
+                        {% if category.image.url == "/media/default/placeholder.webp" %}
+                        <img src="{{category.image.url}}" alt="{{category.title}}" class="image-category">
+                        {% else %}
+                        <img src="{{category.image.url}}" alt="{{category.title}}" class="image-category"
+                            style="object-fit: contain; padding: 5px;">
+                        {% endif %}
+                    </a>
+                    {% if user.is_superuser %}
+                    <div class="btn-group options-category">
+                        <button type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{% static 'icons/dots.svg' %}" alt="dots">
+                        </button>
+                        <ul class="dropdown-menu ">
+                            <a href="{% url 'update_category' category.title category.slug %}"
+                                class="d-block">Update</a>
+                            <a href="{% url 'delete_category' category.title category.slug %}"
+                                class="d-block">Delete</a>
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+                <div>
+                    <a href="{% url 'articles' category.title category.slug %}">
+                        <p><strong style="color:#455772 ;">{{category.title}}</strong></p>
+                    </a>
+                </div>
+                <a href="{% url 'articles' category.title category.slug %}">
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <div class="content-paginator">
+            <nav aria-label="Page navigation example" class="mt-5">
+                {% if categories.has_other_pages %}
+                <ul class="pagination">
+                    {% if categories.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{categories.previous_page_number}}">
+                            Previous
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link disabled" href="#">Previous</a>
+                    </li>
+                    {% endif %}
+
+                    {% for i in categories.paginator.page_range %}
+                    {% if categories.number == i %}
+                    <li class="page-item active">
+                        <a class="page-link" href="?page={{i}}">{{i}}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{i}}">{{i}}</a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+
+                    {% if categories.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{categories.next_page_number}}">Next</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link disabled" href="#">Next</a>
+                    </li>
+                    {% endif %}
+                </ul>
+                {% endif %}
+            </nav>
+        </div>
+    </section>
+</main>
+{% include 'layouts/footer.html' %}
+{% endblock %}

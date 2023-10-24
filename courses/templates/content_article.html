@@ -20,14 +20,19 @@
                     <small>{{object.created}}</small>
                 </div>
             </div>
+            {% if user.is_superuser %}
             <div class="btn-group">
                 <button type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="{% static 'icons/dots.svg' %}" alt="dots">
                 </button>
-                <ul class="dropdown-menu">
-                    ...
+                <ul class="dropdown-menu options-articles" style="padding: 0;">
+                    <a href="{% url 'update_article' object.series.title object.series.slug object.title object.article_slug  %}"
+                        class="d-block">Update</a>
+                    <a href="{% url 'delete_article' object.series.title object.series.slug object.title object.article_slug %}"
+                        class="d-block">Delete</a>
                 </ul>
             </div>
+            {% endif %}
         </div>
 
 

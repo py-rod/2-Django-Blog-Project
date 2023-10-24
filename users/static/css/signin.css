@@ -9,11 +9,6 @@ body {
 
 }
 
-main {
-    max-width: 1900px;
-    margin: 0 auto;
-}
-
 .section-signin {
     display: flex;
     justify-content: space-between;

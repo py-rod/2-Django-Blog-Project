@@ -1,0 +1,44 @@
+.main-new_category {
+    padding: 50px;
+    background-image: url("../images/create_category.svg");
+    background-repeat: no-repeat;
+    background-size: auto, cover;
+}
+
+
+.section-1-new-category {
+    display: flex;
+    align-items: center;
+    padding: 80px 0 150px;
+}
+
+.form-new-category {
+    padding: 40px 30px;
+}
+
+.form-new-category>div>input {
+    border: 1px solid #dac5ff;
+}
+
+.form-new-category>div>input:focus {
+    border: 1px solid #5C00FD;
+    box-shadow: 0 0 3px #5C00FD;
+}
+
+.form-new-category>div>select {
+    border: 1px solid #dac5ff;
+}
+
+.form-new-category>div>select:focus {
+    border: 1px solid #5C00FD;
+    box-shadow: 0 0 3px #5C00FD;
+}
+
+
+.create-new-category {
+    color: white;
+    background-color: #5C00FD;
+    border: none;
+    padding: 7px 15px;
+    border-radius: 4px;
+}

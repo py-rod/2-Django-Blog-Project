@@ -1,0 +1,32 @@
+{% extends 'layouts/base.html' %}
+{% block title %}New Category{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+{% include 'layouts/header.html' %}
+
+<main class="main-new_category">
+    <section class="section-1-new-category">
+        {% if type == "create" %}
+        <form action="{% url 'new_category' %}" class="form-control form-new-category" method="POST"
+            enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form|crispy}}
+            {{form.media}}
+            <button type="submit" class="create-new-category">Create category</button>
+        </form>
+        {% else %}
+        <form action="{% url 'update_category' category.title category.slug %}" class="form-control form-new-category"
+            method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form|crispy}}
+            {{form.media}}
+            <button type="submit" class="create-new-category">Update category</button>
+        </form>
+        {% endif %}
+    </section>
+</main>
+
+{% include 'layouts/footer.html' %}
+
+{% endblock %}

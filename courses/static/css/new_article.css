@@ -1,0 +1,40 @@
+.main-new_article {
+    padding: 50px;
+    background-image: url("../images/create_category.svg");
+    background-repeat: no-repeat;
+    background-size: auto, cover;
+}
+
+
+
+
+.form-new-article {
+    padding: 40px 30px;
+}
+
+.form-new-article>div>input {
+    border: 1px solid #dac5ff;
+}
+
+.form-new-article>div>input:focus {
+    border: 1px solid #5C00FD;
+    box-shadow: 0 0 3px #5C00FD;
+}
+
+.form-new-article>div>select {
+    border: 1px solid #dac5ff;
+}
+
+.form-new-article>div>select:focus {
+    border: 1px solid #5C00FD;
+    box-shadow: 0 0 3px #5C00FD;
+}
+
+
+.create-new-article {
+    color: white;
+    background-color: #5C00FD;
+    border: none;
+    padding: 7px 15px;
+    border-radius: 4px;
+}
