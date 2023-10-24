@@ -53,6 +53,7 @@ THIRD_PARTY_APPS = [
     'crispy_bootstrap5',
     'tinymce',
     'colorfield',
+    'six',
 ]
 
 INSTALLED_APPS = PROJECTS_APPS + THIRD_PARTY_APPS + DEFAULT_APPS
@@ -247,3 +248,13 @@ TINYMCE_DEFAULT_CONFIG = {
         {"text": "YAML", "value": "yaml"}
     ],
 }
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_FROM = "mierdongrande@gmail.com"
+EMAIL_HOST_USER = "mierdongrande@gmail.com"
+EMAIL_HOST_PASSWORD = "farcrxfhplkcuqbh"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+PASSWORD_RESET_TIMEOUT = 14400

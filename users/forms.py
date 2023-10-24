@@ -2,6 +2,7 @@ from .models import CustomUser
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import SetPasswordForm
 from django.contrib.auth import get_user_model
 
 
@@ -35,3 +36,8 @@ class UserUpdateForm(forms.ModelForm):
         model = get_user_model()
         fields = ["username", "email", "first_name",
                   "last_name", "description", "image"]
+
+
+class SetPasswordForm(SetPasswordForm):
+    model = get_user_model()
+    fields = ["new_password1", "new_password2"]
