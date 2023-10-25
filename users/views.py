@@ -24,14 +24,50 @@ from .token import account_activation_token
 # Create your views here.
 
 
+def activate_email(request, user, to_email):
+    mail_sub = "Activate your user account"
+    message = render_to_string("activate_account.html", {
+        "user": user,
+        "domain": get_current_site(request).domain,
+        "uid": urlsafe_base64_encode(force_bytes(user.id)),
+        "token": account_activation_token.make_token(user),
+        "protocol": "https" if request.is_secure() else "http"
+    })
+    email = EmailMessage(mail_sub, message, to=[to_email])
+    if email.send():
+        messages.success(request, "Check your email to verifications")
+    else:
+        messages.error(
+            request, f"Problen sending confirm email {to_email}, check if your type it correctly")
+
+
+def activate(request, uidb64, token):
+    User = get_user_model()
+    try:
+        uid = force_str(urlsafe_base64_decode(uidb64))
+        user = User.objects.get(pk=uid)
+    except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = None
+    if user is not None and account_activation_token.check_token(user, token):
+        user.is_active = True
+        user.save()
+        messages.success(request, "Your account has been activate")
+        return redirect("signin")
+    else:
+        messages.error(request, "Activate link is invalid")
+    return redirect("home")
+
+
 @user_not_authenticated
 def signup(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
+            user.is_activate = False
             user.save()
-            return redirect("signin")
+            activate_email(request, user, form.cleaned_data.get("email"))
+            return redirect("home")
     else:
         form = UserCreationForm()
     return render(request, "signup.html", {

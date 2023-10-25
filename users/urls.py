@@ -7,6 +7,11 @@ urlpatterns = [
     path("signin", views.signin, name="signin"),
     path("logout", views.close_session, name="logout"),
     path("profile/<username>=<id>", views.profile, name="profile"),
+
+    # ACTIVATE ACCOUNT
+    path("activate/<uidb64>/<token>", views.activate, name="activate"),
+
+    # RESET PASSWORD
     path("password_reset", views.password_reset, name="password_reset"),
     path("reset/<uidb64>/<token>", views.password_reset_confirm,
          name="password_reset_confirm")
