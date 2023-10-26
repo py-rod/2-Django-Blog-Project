@@ -117,6 +117,10 @@
 
 
 @media (max-width:450px) {
+    .main-search {
+        padding: 50px 30px;
+    }
+
     .main-articles {
         padding: 50px 30px;
     }
