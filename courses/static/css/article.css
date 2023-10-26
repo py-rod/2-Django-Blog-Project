@@ -113,3 +113,11 @@
     color: #41526b;
     font-weight: 600;
 }
+
+
+
+@media (max-width:450px) {
+    .main-articles {
+        padding: 50px 30px;
+    }
+}

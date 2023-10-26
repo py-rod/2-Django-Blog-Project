@@ -78,3 +78,21 @@
     background-color: rgb(241, 26, 26);
 
 }
+
+
+@media (max-width:590px) {
+    .main-post-article {
+        padding: 50px 30px;
+    }
+}
+
+
+@media(max-width:420px) {
+    .content-info-user-post>div {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        gap: 20px;
+        align-items: center;
+    }
+}

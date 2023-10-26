@@ -6,7 +6,7 @@
             <img src="{% static 'icons/logo2.webp' %}" alt="asd">
         </a>
 
-        <form action="{% url 'search' %}" class="form-search w-50" method="GET">
+        <form action="{% url 'search' %}" class="form-search w-50 header-search" method="GET">
             <input type="text" placeholder="Search" name="q">
             <button type="submit">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -19,39 +19,78 @@
         </form>
 
 
+
+
         {% if user.is_authenticated %}
         {% if user.is_superuser %}
-        <div class="dropdown">
-            <button class="button-menu-profile" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="{{user.image.url}}" alt="Profile pick" class="header-profile-pick">
-            </button>
-            <ul class="dropdown-menu">
-                <li>
-                    <a class="dropdown-item" href="{% url 'profile' user.username user.id %}">
-                        <img src="{% static 'icons/settings.svg' %}" alt="settings">
-                        <p>Profile</p>
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item" href="{% url 'new_category' %}">
-                        <img src="{% static 'icons/create_category.svg' %}" alt="new category">
-                        <p>New Category</p>
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item" href="{% url 'new_article' %}">
-                        <img src="{% static 'icons/create_article.svg' %}" alt="new article">
-                        <p>New Article</p>
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item" href="{% url 'logout' %}">
-                        <img src="{% static 'icons/logout.svg' %}" alt="logout">
-                        <p>Logout</p>
-                    </a>
-                </li>
+        <div class="content-modal-search-drop">
 
-            </ul>
+            <div class="content-modal-search">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                        style="fill: #5C00FD;">
+                        <path
+                            d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z">
+                        </path>
+                    </svg>
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <form action="{% url 'search' %}" class="form-search w-100" method="GET">
+                                    <input type="text" placeholder="Search" name="q">
+                                    <button type="submit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" style="fill: #5C00FD;">
+                                            <path
+                                                d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="dropdown">
+                <button class="button-menu-profile" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="{{user.image.url}}" alt="Profile pick" class="header-profile-pick">
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" href="{% url 'profile' user.username user.id %}">
+                            <img src="{% static 'icons/settings.svg' %}" alt="settings">
+                            <p>Profile</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{% url 'new_category' %}">
+                            <img src="{% static 'icons/create_category.svg' %}" alt="new category">
+                            <p>New Category</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{% url 'new_article' %}">
+                            <img src="{% static 'icons/create_article.svg' %}" alt="new article">
+                            <p>New Article</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{% url 'logout' %}">
+                            <img src="{% static 'icons/logout.svg' %}" alt="logout">
+                            <p>Logout</p>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
         </div>
         {% else %}
         <div class="dropdown">
@@ -75,7 +114,41 @@
         </div>
         {% endif %}
         {% else %}
-        <div>
+        <div class="content-modal-search-drop2">
+
+            <div class="content-modal-search">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                        style="fill: #5C00FD;">
+                        <path
+                            d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z">
+                        </path>
+                    </svg>
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <form action="{% url 'search' %}" class="form-search w-100" method="GET">
+                                    <input type="text" placeholder="Search" name="q">
+                                    <button type="submit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" style="fill: #5C00FD;">
+                                            <path
+                                                d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <a href="{% url 'signup' %}" title="Signup / Signin">
                 <svg width="45px" height="45px" viewBox="0 0 24.00 24.00" fill="none"
                     xmlns="http://www.w3.org/2000/svg">

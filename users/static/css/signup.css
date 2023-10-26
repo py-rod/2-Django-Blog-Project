@@ -72,3 +72,36 @@ img {
     border: 7px;
     border-radius: 7px;
 }
+
+
+@media (max-width:1075px) {
+    .section-signup>img {
+        width: 45%;
+
+    }
+}
+
+
+@media (max-width:775px) {
+    .section-signup>img {
+        display: none;
+    }
+
+
+    .section-signup {
+        padding: 30px;
+    }
+
+    .section-signup>div {
+        border-radius: 5px;
+        padding: 0 40px;
+        width: 100%;
+    }
+}
+
+
+@media (max-width:450px) {
+    .section-signup {
+        padding: 30px 15px;
+    }
+}

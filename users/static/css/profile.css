@@ -73,3 +73,35 @@
     border: 1px solid #5C00FD;
     box-shadow: 0 0 3px #5C00FD;
 }
+
+
+@media (max-width:830px) {
+    .content-img-user {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+
+    .content-img-user>div {
+        margin: 0 auto;
+    }
+
+}
+
+
+@media (max-width:620px) {
+    .section-1-profile {
+        padding: 50px 20px;
+    }
+
+
+    .content-profile-data {
+        padding: 50px 30px;
+    }
+
+
+    .content-form-inputs-profile>div {
+        flex-direction: column-reverse;
+    }
+}

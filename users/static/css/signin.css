@@ -78,3 +78,37 @@ img {
     border: 7px;
     border-radius: 7px;
 }
+
+
+
+
+@media (max-width:1075px) {
+    .section-signin>img {
+        width: 45%;
+    }
+}
+
+
+@media (max-width:775px) {
+    .section-signin>img {
+        display: none;
+    }
+
+
+    .section-signin {
+        padding: 30px;
+    }
+
+    .section-signin>div {
+        border-radius: 5px;
+        padding: 0 40px;
+        width: 100%;
+    }
+}
+
+
+@media (max-width:450px) {
+    .section-signin {
+        padding: 30px 15px;
+    }
+}

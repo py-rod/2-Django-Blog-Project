@@ -38,3 +38,12 @@
     padding: 7px 15px;
     border-radius: 4px;
 }
+
+
+@media (max-width:640px) {
+    .main-new_article {
+        padding: 50px 15px;
+
+    }
+
+}

@@ -2,7 +2,6 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
     background-color: #2d3b50;
     padding: 60px 50px 20px;
     height: 300px;
@@ -20,4 +19,22 @@ footer>div>a {
 footer>p {
     color: white;
     text-align: center;
+}
+
+
+@media (max-width:462px) {
+    footer {
+        padding: 60px 30px 20px;
+
+    }
+
+    footer>div>a {
+        font-size: 2.1rem;
+    }
+
+    footer>p {
+        font-size: 1rem;
+        color: white;
+        text-align: center;
+    }
 }

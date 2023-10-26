@@ -180,3 +180,144 @@
     width: 50%;
     display: block;
 }
+
+
+
+
+/* RESPONSIVE */
+
+@media (max-width:1075px) {
+
+    /* SECTION 1 */
+
+    .section-1-index {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .section-1-index>div>p {
+        width: 100%;
+    }
+
+    .section-1-index>img {
+        width: 90%;
+        display: block;
+
+    }
+
+    /* SECTION 3 */
+
+    .section-3-index>h3 {
+        text-align: center;
+    }
+
+    .content-other-info-index {
+        flex-direction: column-reverse;
+    }
+
+    .content-other-info-index>img {
+        width: 90%;
+        display: block;
+    }
+
+}
+
+
+@media (max-width:600px) {
+
+    /* SECTION 1 */
+
+    .section-1-index {
+        padding: 60px 30px;
+    }
+
+
+    .section-1-index>div>h3 {
+        font-size: 2.5rem;
+    }
+
+    .section-1-index>div>p {
+        font-size: 1.2rem;
+    }
+
+    .section-1-index>img {
+        width: 100%;
+    }
+
+
+    /* SECTION 2 CATEGORIES COURSE */
+
+
+    .section-2-categories>div {
+        padding: 50px 30px;
+    }
+
+    .section-2-categories>div>div>h3 {
+        font-size: 2.1rem;
+    }
+
+
+    /* SECTION 3 */
+    .section-3-index {
+        padding: 0px 30px;
+    }
+
+    .section-3-index>h3 {
+        font-size: 2.5rem;
+    }
+
+
+    .content-other-info-index>img {
+        width: 100%;
+
+    }
+
+}
+
+
+@media (max-width:462px) {
+
+    /* SECTION 1 */
+
+    .section-1-index {
+        padding: 60px 30px;
+    }
+
+
+    .section-1-index>div>h3 {
+        font-size: 2.2rem;
+    }
+
+    .section-1-index>div>p {
+        font-size: 1.09rem;
+    }
+
+
+    /* SECTION 2 CATEGORIES COURSE */
+    .section-2-categories>div>div>h3 {
+        font-size: 1.9rem;
+    }
+
+    .section-2-categories>div>div>a {
+        padding: 5px 10px;
+    }
+
+
+    /* SECTION 3 */
+    .section-3-index {
+        padding: 0px 30px;
+    }
+
+    .section-3-index>h3 {
+        font-size: 2rem;
+    }
+
+    .content-other-info-index>ul>li>p {
+        font-size: 1.09rem;
+    }
+
+    .content-other-info-index>img {
+        width: 100%;
+
+    }
+}
