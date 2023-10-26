@@ -50,3 +50,28 @@ The Django Course Platform is a web application designed to create and manage co
 **Run the development server.**
  - python manage.py runserver
  - Access the application in your browser at http://localhost:8000
+
+## Images
+
+![111](https://github.com/py-rod/Django-Blog-Project/assets/103091079/af135c50-29d5-4af5-b3f0-33086683cc7e)
+
+![22](https://github.com/py-rod/Django-Blog-Project/assets/103091079/25bf60d8-c315-40c3-a27d-0400518b9fae)
+
+![33](https://github.com/py-rod/Django-Blog-Project/assets/103091079/c256b941-22c3-4e61-b90a-4989a7b37fce)
+
+![44](https://github.com/py-rod/Django-Blog-Project/assets/103091079/cb88f901-5048-4839-b653-88f127f016ee)
+
+![55](https://github.com/py-rod/Django-Blog-Project/assets/103091079/b396a606-f000-4128-b98b-13ca3a8096db)
+
+![66](https://github.com/py-rod/Django-Blog-Project/assets/103091079/02e22722-f1e1-4203-b954-7c76548bc628)
+
+![777](https://github.com/py-rod/Django-Blog-Project/assets/103091079/94fa5693-7afb-4701-bf4d-66dfd5ed081a)
+
+![88](https://github.com/py-rod/Django-Blog-Project/assets/103091079/975c6a14-5fdc-4f85-8c7d-963722068d6d)
+
+
+
+
+
+
+
