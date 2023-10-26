@@ -61,8 +61,6 @@ The Django Course Platform is a web application designed to create and manage co
 
 ![44](https://github.com/py-rod/Django-Blog-Project/assets/103091079/cb88f901-5048-4839-b653-88f127f016ee)
 
-![55](https://github.com/py-rod/Django-Blog-Project/assets/103091079/b396a606-f000-4128-b98b-13ca3a8096db)
-
 ![66](https://github.com/py-rod/Django-Blog-Project/assets/103091079/02e22722-f1e1-4203-b954-7c76548bc628)
 
 ![777](https://github.com/py-rod/Django-Blog-Project/assets/103091079/94fa5693-7afb-4701-bf4d-66dfd5ed081a)
