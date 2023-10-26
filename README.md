@@ -29,24 +29,24 @@ The Django Course Platform is a web application designed to create and manage co
 
 
 
-Create a virtual environment and activate it.
+## Create a virtual environment and activate it.
 
 python -m venv venv
 source venv/bin/activate
 
-Install the project dependencies.
+- **Install the project dependencies.**:
 pip install -r requirements.txt
 
 
-Migrate the database.
+-**Migrate the database.**
 python manage.py makemigrations
 python manage.py migrate
 
 
-Create a superuser account for admin access.
+-**Create a superuser account for admin access.**
 python manage.py createsuperuser
 
 
-Run the development server.
+-**Run the development server.**
 python manage.py runserver
 Access the application in your browser at http://localhost:8000
