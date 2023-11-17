@@ -9,7 +9,7 @@ from .decorators import user_is_superuser
 
 def articles(request, slug: str, title: str):
     article = Article.objects.filter(series__slug=slug).all()
-    paginator = Paginator(article, 20)
+    paginator = Paginator(article, 1)
     page = request.GET.get("page")
     paged_articles = paginator.get_page(page)
     category_title = Article.objects.filter(series__slug=slug).first()
@@ -30,15 +30,24 @@ def content_article(request, slug: str, article_slug: str, title1: str, title2: 
 def search_view(request):
     search_query = request.GET.get("q", "")
     if search_query != "":
-        articles = Article.objects.filter(title__icontains=search_query).all()
-        paginator = Paginator(articles, 20)
+        articles = Article.objects.filter(
+            title__icontains=search_query).distinct()
+
         page = request.GET.get("page")
-        paged_articles = paginator.get_page(page)
+        paginator = Paginator(articles, 1)
+        try:
+            post = paginator.page(page)
+        except PageNotAnInteger:
+            post = paginator.page(1)
+        except EmptyPage:
+            post = paginator.page(paginator.num_pages)
         return render(request, "search.html", {
-            "objects": paged_articles
+            "search_query": search_query,
+            "objects": post
         })
     else:
         return render(request, "search.html", {
+            "search_query": search_query,
             "objects": False
         })
 
